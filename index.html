@@ -97,7 +97,7 @@
             const wordCount = paragraph.trim().split(/\s+/).length;
             const message = document.getElementById("message");
 
-            if (wordCount < 1) {
+            if (wordCount < 200) {
                 message.innerText = "Paragraph must be at least 200 words.";
                 return false;
             }
