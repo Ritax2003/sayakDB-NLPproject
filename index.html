@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Submission</title>
+    <style>
+        /* General page styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        /* Form layout */
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        select, textarea, input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Button styles */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Message and error handling */
+        #message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #d9534f;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 12px 0;
+            }
+        }
+    </style>
+    <script>
+        function validateAndSubmitForm() {
+            const paragraph = document.getElementById("paragraph").value;
+            const wordCount = paragraph.trim().split(/\s+/).length;
+            const message = document.getElementById("message");
+
+            if (wordCount < 1) {
+                message.innerText = "Paragraph must be at least 200 words.";
+                return false;
+            }
+
+            message.innerText = "Submitting...";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Submit Your Paragraph for SAYAK Database for making database for "Automation in lecture taking using NLP" </h2>
+    <div class="container">
+        <form 
+            action="https://docs.google.com/forms/d/e/1FAIpQLSc6kE809qH0Qgq6iYHRTh8DzgvKP3M2xM6268QqGwkBDSBvdw/formResponse" 
+            method="POST" 
+            target="_self"
+            onsubmit="return validateAndSubmitForm()">
+
+            <label for="subject">Subject:</label>
+            <select name="entry.1895656290" id="subject" required>
+                <option value="">Select Subject</option>
+                <option value="Operating System">Operating System</option>
+                <option value="DBMS">DBMS</option>
+                <option value="Computer networks">Computer networks</option>
+                <option value="TOC">TOC</option>
+                <option value="Compiler Design">Compiler Design</option>
+                <option value="Analog and Digital Electronics">Analog and Digital Electronics</option>
+                <option value="Economics">Economics</option>
+                <option value="Engineering Maths">Engineering Maths</option>
+            </select>
+
+            <label for="paragraph">Paragraph:</label>
+            <textarea 
+                name="entry.968103711" 
+                id="paragraph" 
+                rows="10" 
+                required 
+                placeholder="Enter at least 200 words"></textarea>
+
+            <label for="keywords">Keywords (comma-separated):</label>
+            <input 
+                type="text" 
+                name="entry.1522070949" 
+                id="keywords" 
+                required 
+                placeholder="Enter keywords">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+</body>
+</html>
